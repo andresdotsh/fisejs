@@ -11,7 +11,7 @@ const app = express(),
   vars = {
     title: 'fise.js',
     devStatic: '/static',
-    virtualStorage: '/served-files'
+    virtualStorage: '/fisejs'
   };
 
 // uncomment next line to compile readable html
@@ -28,7 +28,6 @@ app.use(vars.virtualStorage, express.static(path.join(__dirname, storageFolderLo
 app.use(vars.devStatic, express.static(path.join(__dirname, 'assets')));
 
 app.get('/*', (req, res) => {
-  let message = ((req.query.type && req.query.title && req.query.body) && (req.query.type=='success' || req.query.type=='info' || req.query.type=='warning' || req.query.type=='danger')) ? req.query : null;
   let url = req.params[0], arrTemp = [], arrUrl = [], arrBreadcrumbs = [], extraUrl = '';
 
   if(url.length > 0){
@@ -51,7 +50,7 @@ app.get('/*', (req, res) => {
   let dirs = listDirsFiles(path.join(__dirname, storageFolderLocation, extraUrl), 'directories');
   let files = listDirsFiles(path.join(__dirname, storageFolderLocation, extraUrl), 'files');
 
-  res.render('index', { vars, dirs, files, extraUrl, arrUrl, arrBreadcrumbs, message });
+  res.render('index', { vars, dirs, files, extraUrl, arrUrl, arrBreadcrumbs });
 });
 
 app.post('/godir', (req, res) => {
@@ -63,8 +62,7 @@ app.post('/uploadfile', (req, res) => {
   form.multiples = true;
   form.keepExtensions = true;
   form.parse(req, (err, fields, files) => {
-    let msgString = '',
-      uploadDir = path.join(process.env.PWD, storageFolderName, fields.uploaddir),
+    let uploadDir = path.join(process.env.PWD, storageFolderName, fields.uploaddir),
       newFilename = fields.filename,
       filesNumber = (files.fileobject.length >= 2) ? files.fileobject.length : 1;
 
@@ -86,7 +84,6 @@ app.post('/uploadfile', (req, res) => {
 
       let bufferFile = fs.readFileSync(tempPath);
       fs.writeFileSync(lastPath, bufferFile);
-      msgString += '?title=' + encodeURIComponent('Success!') + '&body=' + encodeURIComponent('File uploaded successfully') + '&type=success';
     } else if(filesNumber>1){
       for(let i = 0; i < filesNumber; i++){
         let origFilename = files.fileobject[i].name;
@@ -107,11 +104,10 @@ app.post('/uploadfile', (req, res) => {
         let bufferFile = fs.readFileSync(tempPath);
         fs.writeFileSync(lastPath, bufferFile);
       }
-      msgString += '?title=' + encodeURIComponent('Success!') + '&body=' + encodeURIComponent('All files has been uploaded successfully') + '&type=success';
     }
 
     let load = (fields.uploaddir.length > 0) ? fields.uploaddir : '/';
-    res.redirect(load + msgString);
+    res.redirect(load);
   });
 });
 
@@ -124,13 +120,13 @@ function listDirsFiles(location, lookFor){
   if(lookFor == 'directories'){
     list.forEach((fileOrDir) => {
       if(fs.statSync(path.join(location, fileOrDir)).isDirectory()){
-        items.push(fileOrDir);
+        if(fileOrDir.indexOf('.') != 0) items.push(fileOrDir);
       }
     });
   } else if(lookFor == 'files'){
     list.forEach((fileOrDir) => {
       if(fs.statSync(path.join(location, fileOrDir)).isFile()){
-        items.push(fileOrDir);
+        if(fileOrDir.indexOf('.') != 0) items.push(fileOrDir);
       }
     });
   }

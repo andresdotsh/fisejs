@@ -2,10 +2,6 @@ extends base.pug
 
 block content
   div(class='container')
-    if message
-      div(id='alert-message' class=`alert alert-${message.type}` role='alert')
-        strong #{message.title}
-        span &nbsp;#{message.body}
     div(class='row')
       div(class='col-sm-12 col-md-12 col-lg-12')
         h2 #{vars.title}&nbsp;
