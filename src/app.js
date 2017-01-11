@@ -23,7 +23,7 @@ app.set('view engine', 'pug');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(favicon(path.join(__dirname, 'assets', 'img', 'node-js.ico')));
+app.use(favicon(path.join(__dirname, 'assets', 'img', 'js.png')));
 app.use(vars.virtualStorage, express.static(path.join(__dirname, storageFolderLocation)));
 app.use(vars.devStatic, express.static(path.join(__dirname, 'assets')));
 
