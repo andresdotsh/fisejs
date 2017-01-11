@@ -7,7 +7,6 @@
     "block-scoped-var": 2,
     "brace-style": [2, "1tbs"],
     "comma-dangle": [2, "never"],
-    "complexity": [2, 8],
     "consistent-return": 2,
     "dot-location": [2, "property"],
     "dot-notation": 2,
