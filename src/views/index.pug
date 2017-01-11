@@ -1,0 +1,55 @@
+extends base.pug
+
+block content
+  div(class='container')
+    if message
+      div(id='alert-message' class=`alert alert-${message.type}` role='alert')
+        strong #{message.title}
+        span &nbsp;#{message.body}
+    div(class='row')
+      div(class='col-sm-12 col-md-12 col-lg-12')
+        h2 #{vars.title}&nbsp;
+          small file server with nodejs
+      div(class='col-sm-12 col-md-12 col-lg-12')
+        if extraUrl.length > 0
+          form(method='post' action='/godir' class='rv-inline')
+            input(type='hidden' name='goto' value='/')
+            a(href='#' class='folder-item')
+              i(class='fa fa-folder-open' aria-hidden='true')
+        else
+          i(class='fa fa-folder-open-o' aria-hidden='true')
+        if extraUrl.length > 0
+          each itemUrl, pos in arrUrl
+            if pos+1 == arrUrl.length
+              span &nbsp;/&nbsp;
+                strong #{itemUrl}
+            else
+              form(method='post' action='/godir' class='rv-inline')
+                input(type='hidden' name='goto' value=`${arrBreadcrumbs[pos]}`)
+                span &nbsp;/&nbsp;
+                a(href='#' class='folder-item') #{itemUrl}
+    br
+    div(class='row')
+      div(class='col-sm-12 col-md-12 col-lg-7')
+        table(class='table table-striped table-bordered table-hover table-condensed')
+          tbody
+            each dir in dirs
+              tr
+                td
+                  form(method='post' action='/godir')
+                    i(class='fa fa-folder-o' aria-hidden='true')
+                    if extraUrl.length > 0
+                      input(type='hidden' name='goto' value=`${extraUrl}/${dir}`)
+                    else
+                      input(type='hidden' name='goto' value=`${dir}`)
+                    a(href='#' class='folder-item') &nbsp;#{dir}
+            each file in files
+              tr
+                td
+                  a(href=`${vars.virtualStorage}${extraUrl}/${file}` target='_blank') #{file}
+      div(class='col-sm-12 col-md-12 col-lg-5')
+        form(action='/uploadfile' enctype='multipart/form-data' method='post')
+          input(type='hidden' name='uploaddir' value=`${extraUrl}`)
+          input(type='text' class='form-control' placeholder='Filename' name='filename')
+          input(type='file' name='fileobject' multiple='multiple')
+          input(type='submit' class='btn btn-default btn-sm btn-block' value='Upload file...')
