@@ -66,7 +66,7 @@ app.post('/uploadfile', (req, res) => {
       newFilename = fields.filename,
       filesNumber = (files.fileobject.length >= 2) ? files.fileobject.length : 1;
 
-    if(filesNumber==1){
+    if(filesNumber===1){
       let origFilename = files.fileobject.name;
       let tempPath = files.fileobject.path;
       let lastPath = '';
@@ -117,13 +117,13 @@ app.disable('x-powered-by');
 function listDirsFiles(location, lookFor){
   let list = fs.readdirSync(location), items = [];
 
-  if(lookFor == 'directories'){
+  if(lookFor === 'directories'){
     list.forEach((fileOrDir) => {
       if(fs.statSync(path.join(location, fileOrDir)).isDirectory()){
         if(fileOrDir.indexOf('.') != 0) items.push(fileOrDir);
       }
     });
-  } else if(lookFor == 'files'){
+  } else if(lookFor === 'files'){
     list.forEach((fileOrDir) => {
       if(fs.statSync(path.join(location, fileOrDir)).isFile()){
         if(fileOrDir.indexOf('.') != 0) items.push(fileOrDir);
