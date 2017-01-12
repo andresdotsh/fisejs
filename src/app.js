@@ -1,8 +1,8 @@
+import fs from 'fs';
+import path from 'path';
 import express from 'express';
 import bodyParser from 'body-parser';
-import path from 'path';
 import favicon from 'serve-favicon';
-import fs from 'fs';
 import formidable from 'formidable';
 
 const app = express(),
@@ -61,6 +61,11 @@ app.post('/uploadfile', (req, res) => {
   let form = new formidable.IncomingForm();
   form.multiples = true;
   form.keepExtensions = true;
+  form.on('progress', (bytesReceived, bytesExpected) => {
+    if((bytesExpected/1000000) > 3){
+      console.log(Math.round((bytesReceived/bytesExpected)*100));
+    }
+  });
   form.parse(req, (err, fields, files) => {
     let uploadDir = path.join(process.env.PWD, storageFolderName, fields.uploaddir),
       newFilename = fields.filename,
@@ -84,6 +89,7 @@ app.post('/uploadfile', (req, res) => {
 
       let bufferFile = fs.readFileSync(tempPath);
       fs.writeFileSync(lastPath, bufferFile);
+      fs.unlink(tempPath);
     } else if(filesNumber>1){
       for(let i = 0; i < filesNumber; i++){
         let origFilename = files.fileobject[i].name;
@@ -103,6 +109,7 @@ app.post('/uploadfile', (req, res) => {
 
         let bufferFile = fs.readFileSync(tempPath);
         fs.writeFileSync(lastPath, bufferFile);
+        fs.unlinkSync(tempPath);
       }
     }
 
