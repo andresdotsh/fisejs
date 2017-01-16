@@ -1,5 +1,5 @@
 {
-  "name": "fise.js",
+  "name": "fisejs",
   "version": "0.1.0",
   "description": "A simple file server with nodejs",
   "main": "server.js",
@@ -10,7 +10,7 @@
     "all:dev": "npm run build:dev && npm run start:dev",
     "start": "node ./src/server.js"
   },
-  "author": "andrewrosvel",
+  "author": "andrewrosvel <andrewrosvel@gmail.com>",
   "license": "GNU GPLv3",
   "dependencies": {
     "babel-eslint": "^7.1.1",
