@@ -23,10 +23,15 @@ function main(req, res){
       }
     }
   }
-  let dirs = _listDirsFiles(path.join(__dirname, conf.storageFolder3Level, extraUrl), 'directories');
-  let files = _listDirsFiles(path.join(__dirname, conf.storageFolder3Level, extraUrl), 'files');
 
-  res.render('index', { vars: conf.vars, dirs, files, extraUrl, arrUrl, arrBreadcrumbs });
+  if(_existsDir(path.join(__dirname, conf.storageFolder3Level, extraUrl))){
+    let dirs = _listDirsFiles(path.join(__dirname, conf.storageFolder3Level, extraUrl), 'directories');
+    let files = _listDirsFiles(path.join(__dirname, conf.storageFolder3Level, extraUrl), 'files');
+
+    res.render('index', { vars: conf.vars, dirs, files, extraUrl, arrUrl, arrBreadcrumbs });
+  } else {
+    res.render('doesnotexist', { vars: conf.vars, extraUrl });
+  }
 }
 
 function redirect(req, res){
@@ -37,11 +42,11 @@ function uploadFile(req, res){
   let form = new formidable.IncomingForm();
   form.multiples = true;
   form.keepExtensions = true;
-  form.on('progress', (bytesReceived, bytesExpected) => {
+  /* form.on('progress', (bytesReceived, bytesExpected) => {
     if((bytesExpected/1000000) > 3){
       console.log(Math.round((bytesReceived/bytesExpected)*100));
     }
-  });
+  }); */
   form.parse(req, (err, fields, files) => {
     let uploadDir = path.join(process.env.PWD, conf.storageFolderName, fields.uploaddir),
       newFilename = fields.filename,
@@ -95,6 +100,14 @@ function uploadFile(req, res){
 }
 
 // private functions
+function _existsDir(dir){
+  try {
+    return fs.statSync(dir).isDirectory();
+  } catch (e) {
+    return false;
+  }
+}
+
 function _listDirsFiles(location, lookFor){
   let list = fs.readdirSync(location), items = [];
 

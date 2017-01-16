@@ -1,0 +1,22 @@
+extends base.pug
+
+block content
+  div(class='container')
+    div(class='row')
+      div(class='col-sm-12 col-md-12 col-lg-12')
+        h2 #{vars.title}&nbsp;
+          small simple file server
+      div(class='col-sm-12 col-md-12 col-lg-12')
+        form(method='post' action='/godir' class='rv-inline')
+          input(type='hidden' name='goto' value='/')
+          a(href='#' class='folder-item')
+            i(class='fa fa-folder-open' aria-hidden='true')
+    br
+    div(class='row')
+      div(class='col-sm-12 col-md-12 col-lg-12')
+        h3 The directory #[strong #{extraUrl}] does not exists!
+        form(method='post' action='/godir' class='rv-inline')
+          input(type='hidden' name='goto' value='/')
+          a(href='#' class='folder-item')
+            i(class='fa fa-reply' aria-hidden='true')
+            i &nbsp;Go back home

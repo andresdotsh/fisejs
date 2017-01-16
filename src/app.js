@@ -8,7 +8,7 @@ import conf from './config';
 const app = express();
 
 // uncomment next line to compile readable html
-app.locals.pretty = true;
+//app.locals.pretty = true;
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
