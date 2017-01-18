@@ -48,6 +48,8 @@ function uploadFile(req, res){
     }
   }); */
   form.parse(req, (err, fields, files) => {
+    if(err) throw err;
+
     let uploadDir = path.join(process.env.PWD, conf.storageFolderName, fields.uploaddir),
       newFilename = fields.filename,
       filesNumber = (files.fileobject.length >= 2) ? files.fileobject.length : 1;
@@ -103,7 +105,7 @@ function uploadFile(req, res){
 function _existsDir(dir){
   try {
     return fs.statSync(dir).isDirectory();
-  } catch (e) {
+  } catch (e){
     return false;
   }
 }

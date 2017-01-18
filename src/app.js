@@ -28,6 +28,11 @@ app.use(conf.vars.devStatic, express.static(path.join(__dirname, 'assets')));
 // routes
 app.use(routes);
 
+// handle errors
+app.use((err, req, res, next) => {
+  res.render('error', { error: err, vars: conf.vars });
+});
+
 // disabling x-powered-by
 app.disable('x-powered-by');
 
