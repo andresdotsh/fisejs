@@ -43,7 +43,7 @@ function uploadFile(req, res){
   form.multiples = true;
   form.keepExtensions = true;
   /* form.on('progress', (bytesReceived, bytesExpected) => {
-    if((bytesExpected/1000000) > 3){
+    if((bytesExpected/1000000) > 5){
       console.log(Math.round((bytesReceived/bytesExpected)*100));
     }
   }); */
