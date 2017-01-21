@@ -40,6 +40,7 @@ gulp.task('js', (cb) => {
     gulp.src([
       'src/assets-dev/js/jquery.min.js',
       'src/assets-dev/js/bootstrap.min.js',
+      'src/assets-dev/js/bootbox.min.js',
       'src/assets-dev/js/rv-file-server.min.js'
     ]),
     concat('scripts.min.js'),

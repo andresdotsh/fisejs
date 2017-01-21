@@ -1,8 +1,6 @@
 extends base.pug
 
 block content
-  div(id='loadbackground')
-  div(id='loadimg')
   div(class='container')
     div(class='row')
       div(class='col-sm-12 col-md-12 col-lg-12')
@@ -30,7 +28,8 @@ block content
     div(class='row')
       div(class='col-sm-12 col-md-12 col-lg-7')
         if dirs.length === 0 && files.length === 0
-          h3 Empty directory!
+          div(class='jumbotron')
+            h2 Empty directory!
         table(class='table table-striped table-bordered table-hover table-condensed')
           tbody
             each dir in dirs

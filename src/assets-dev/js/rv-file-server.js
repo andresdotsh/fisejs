@@ -2,8 +2,6 @@
   var uploadForm = doc.querySelector('form#uploadform');
   var fileInput = doc.querySelector('input#fileinput');
   var uploadButton = doc.querySelector('input#uploadbutton');
-  var loadBack = doc.querySelector('div#loadbackground');
-  var loadImg = doc.querySelector('div#loadimg');
   var anchors = doc.querySelectorAll('a.folder-item');
   if(uploadButton){
     uploadButton.addEventListener('click', function(){
@@ -14,8 +12,7 @@
       }
       if(files.length > 0) uploadForm.submit();
       if((totalSize/1000000) > 5){
-        loadBack.className += 'show';
-        loadImg.className += 'show';
+        bootbox.dialog({ message: '<h3 class="text-center">Loading...</h3><img src="/static/img/progress.gif" class="img-responsive center-block loading-img">' });
       }
     });
   }

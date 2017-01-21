@@ -14,9 +14,10 @@ block content
     br
     div(class='row')
       div(class='col-sm-12 col-md-12 col-lg-12')
-        h3 The directory #[strong #{extraUrl}] does not exists!
-        form(method='post' action='/godir' class='rv-inline')
-          input(type='hidden' name='goto' value='/')
-          a(href='#' class='folder-item')
-            i(class='fa fa-reply' aria-hidden='true')
-            i &nbsp;Go back home
+        div(class='jumbotron')
+          h3 The directory #[strong #{extraUrl}] does not exists!
+          form(method='post' action='/godir' class='rv-inline')
+            input(type='hidden' name='goto' value='/')
+            a(href='#' class='folder-item')
+              i(class='fa fa-reply' aria-hidden='true')
+              i &nbsp;Go back home
