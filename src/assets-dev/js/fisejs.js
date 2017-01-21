@@ -11,9 +11,7 @@
         totalSize += files[i].size;
       }
       if(files.length > 0) uploadForm.submit();
-      if((totalSize/1000000) > 5){
-        bootbox.dialog({ message: '<h3 class="text-center">Loading...</h3><img src="/static/img/progress.gif" class="img-responsive center-block loading-img">' });
-      }
+      if((totalSize/1000000) > 5) bootbox.dialog({ message: '<h3 class="text-center">Loading...</h3><img src="/static/img/progress.gif" class="img-responsive center-block loading-img">' });
     });
   }
   for(var i = 0; i < anchors.length; i++){

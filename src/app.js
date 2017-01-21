@@ -37,6 +37,4 @@ app.use((err, req, res, next) => {
 app.disable('x-powered-by');
 
 // listening port
-app.listen(conf.port, () => {
-  console.log(`*** Server running at http://127.0.0.1:${conf.port}`);
-});
+app.listen(conf.port);

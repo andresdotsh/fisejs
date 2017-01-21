@@ -8,8 +8,8 @@ import pump from 'pump';
 // minify js task
 gulp.task('minjs', (cb) => {
   pump([
-    gulp.src('src/assets-dev/js/rv-file-server.js'),
-    concat('rv-file-server.min.js'),
+    gulp.src('src/assets-dev/js/fisejs.js'),
+    concat('fisejs.min.js'),
     uglify(),
     gulp.dest('src/assets-dev/js')
   ],
@@ -22,7 +22,7 @@ gulp.task('css', (cb) => {
     gulp.src([
       'src/assets-dev/css/bootstrap.min.css',
       'src/assets-dev/css/font-awesome.min.css',
-      'src/assets-dev/css/rv-file-server.css'
+      'src/assets-dev/css/fisejs.css'
     ]),
     concat('styles.min.css'),
     cleanCss({
@@ -41,7 +41,7 @@ gulp.task('js', (cb) => {
       'src/assets-dev/js/jquery.min.js',
       'src/assets-dev/js/bootstrap.min.js',
       'src/assets-dev/js/bootbox.min.js',
-      'src/assets-dev/js/rv-file-server.min.js'
+      'src/assets-dev/js/fisejs.min.js'
     ]),
     concat('scripts.min.js'),
     gulp.dest('src/assets/js')
@@ -54,7 +54,6 @@ gulp.task('eslint', () => {
   gulp
     .src([
       'src/*.js',
-      'src/assets-dev/js/rv-file-server.js',
       'src/controllers/*.js',
       'src/routes/*.js'
     ])
