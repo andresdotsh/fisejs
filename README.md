@@ -9,14 +9,14 @@ I'm new with JS and NodeJS, so I decided start this simple project to share what
 
 #### Download and install
 
-```sh
+```
 $ git clone https://github.com/andrewrosvel/fisejs.git && cd fisejs
 $ npm install
 ```
 
 #### Run server
 
-```sh
+```
 $ npm start
 ```
 
