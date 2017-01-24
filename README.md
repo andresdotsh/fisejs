@@ -7,6 +7,12 @@ I'm new with JS and NodeJS, so I decided start this simple project to share what
 
 # Getting Started
 
+#### Requirements
+
+* nodejs >= 4
+* npm >= 2
+* git >= 2
+
 #### Download and install
 
 ```
