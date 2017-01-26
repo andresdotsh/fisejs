@@ -48,7 +48,8 @@ function uploadFile(req, res){
     }
   }); */
   form.parse(req, (err, fields, files) => {
-    if(err) throw err;
+    let load = (fields.uploaddir.length > 0) ? fields.uploaddir : '/';
+    if(err) res.redirect(load);
 
     let uploadDir = path.join(process.env.PWD, conf.storageFolderName, fields.uploaddir),
       newFilename = fields.filename,
@@ -96,7 +97,6 @@ function uploadFile(req, res){
       }
     }
 
-    let load = (fields.uploaddir.length > 0) ? fields.uploaddir : '/';
     res.redirect(load);
   });
 }
