@@ -9,7 +9,7 @@ I started this project for a simple reason.
 
 * nodejs >= 4
 * npm >= 2
-* git >= 2 || direct download
+* git >= 2 **||** <a href='https://github.com/andrewrosvel/fisejs/archive/master.zip'>direct download</a>
 
 #### Download and install
 
@@ -28,5 +28,5 @@ $ npm start
 Simple, it's useful to *upload/download* files in a network, just put the files in the **/files** directory and that's all.
 
 # :)
-Feel free to correct me or suggest improvements through **GitHub** or [Twitter](https://twitter.com/andrewrosvel "@andrewrosvel").
+Feel free to correct me or suggest improvements through **GitHub** or <a href='https://twitter.com/andrewrosvel' target='_blank'>Twitter</a>.
 I'll try to make it better with time.
