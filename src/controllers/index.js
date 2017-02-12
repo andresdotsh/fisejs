@@ -24,9 +24,9 @@ function main(req, res){
     }
   }
 
-  if(_existsDir(path.join(__dirname, conf.storageFolder3Level, extraUrl))){
-    let dirs = _listDirsFiles(path.join(__dirname, conf.storageFolder3Level, extraUrl), 'directories');
-    let files = _listDirsFiles(path.join(__dirname, conf.storageFolder3Level, extraUrl), 'files');
+  if(_existsDir(path.join(__dirname, '..', '..', conf.storageFolderName, extraUrl))){
+    let dirs = _listDirsFiles(path.join(__dirname, '..', '..', conf.storageFolderName, extraUrl), 'directories');
+    let files = _listDirsFiles(path.join(__dirname, '..', '..', conf.storageFolderName, extraUrl), 'files');
 
     res.render('index', { vars: conf.vars, dirs, files, extraUrl, arrUrl, arrBreadcrumbs });
   } else {

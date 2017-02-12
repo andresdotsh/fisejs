@@ -1,6 +1,8 @@
 {
   "env": {
-    "es6": true
+    "es6": true,
+    "node": true,
+    "browser": true
   },
   "rules": {
     "accessor-pairs": 0,
@@ -28,7 +30,7 @@
     "no-floating-decimal": 2,
     "no-func-assign": 2,
     "no-implied-eval": 2,
-    "no-inner-declarations": [2, "both"],
+    "no-inner-declarations": [1, "both"],
     "no-invalid-regexp": 2,
     "no-irregular-whitespace": 2,
     "no-iterator": 2,
@@ -56,9 +58,10 @@
     "strict": [1, "global"],
     "use-isnan": 2,
     "valid-typeof": 2,
-    "vars-on-top": 2
+    "vars-on-top": 1
   },
   "parserOptions": {
+    "ecmaVersion": 6,
     "sourceType": "module"
   }
 }

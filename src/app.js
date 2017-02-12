@@ -22,7 +22,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(favicon(path.join(__dirname, 'assets', 'img', 'js.png')));
 
 // serve static files
-app.use(conf.vars.virtualStorage, express.static(path.join(__dirname, conf.storageFolder2Level)));
+app.use(conf.vars.virtualStorage, express.static(path.join(__dirname, '..', conf.storageFolderName)));
 app.use(conf.vars.devStatic, express.static(path.join(__dirname, 'assets')));
 
 // routes
@@ -37,4 +37,4 @@ app.use((err, req, res, next) => {
 app.disable('x-powered-by');
 
 // listening port
-app.listen(conf.port);
+app.listen(conf.port, () => console.log(`### fisejs running @ http://127.0.0.1:${conf.port}/ ###`));

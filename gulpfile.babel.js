@@ -55,7 +55,8 @@ gulp.task('eslint', () => {
     .src([
       'src/*.js',
       'src/controllers/*.js',
-      'src/routes/*.js'
+      'src/routes/*.js',
+      'src/assets-dev/js/fisejs.js'
     ])
     .pipe(eslint())
     .pipe(eslint.format())
