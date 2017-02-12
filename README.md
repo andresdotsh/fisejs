@@ -1,7 +1,7 @@
 # fise.js
 This is a simple file server with **node.js**, **express**, **pug** and other technologies.
 
-It's useful to *upload/download* files in a network, just put your files in the **/files** directory and that's all.
+It's useful to upload/download files in a network, just put your files in the **/files** directory and that's all.
 
 # Installation
 

@@ -4,10 +4,10 @@ import formidable from 'formidable';
 import conf from '../config';
 
 function main(req, res){
-  let url = req.params[0], arrTemp = [], arrUrl = [], arrBreadcrumbs = [], extraUrl = '';
+  let pathname = req.params[0], arrTemp = [], arrUrl = [], arrBreadcrumbs = [], extraUrl = '';
 
-  if(url.length > 0){
-    arrTemp = url.split('/');
+  if(pathname.length > 0){
+    arrTemp = pathname.split('/');
     for(let i = 0; i < arrTemp.length; i++){
       if(arrTemp[i].length > 0){
         extraUrl += '/' + arrTemp[i];
