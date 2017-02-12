@@ -1,7 +1,6 @@
 # fise.js
 This is a simple file server with **node.js**, **express**, **pug** and other technologies.
-I started this project for a simple reason.
-+ *To learn and practice JS and NodeJS*.
+It's useful to *upload/download* files in a network, just put your files in the **/files** directory and that's all.
 
 # Installation
 
@@ -24,9 +23,6 @@ $ npm install
 $ npm start
 ```
 
-# What it does?
-Simple, it's useful to *upload/download* files in a network, just put the files in the **/files** directory and that's all.
-
 # :)
-Feel free to correct me or suggest improvements through **GitHub** or [Twitter](https://twitter.com/andrewrosvel "@andrewrosvel").
+I started this project to learn and practice NodeJs, so feel free to correct me or suggest me improvements through **GitHub** or [Twitter](https://twitter.com/andrewrosvel "@andrewrosvel").
 I'll try to make it better with time.
