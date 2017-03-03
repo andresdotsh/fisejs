@@ -25,5 +25,5 @@ $ npm start
 ```
 
 # :)
-I started this project to learn and practice NodeJS, so feel free to correct me or suggest me improvements through **GitHub** or [Twitter](https://twitter.com/andrewrosvel "@andrewrosvel").
+I started this project to learn and practice NodeJS.
 I'll try to make it better with time.
