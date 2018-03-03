@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/sysbar/fisejs.git"
+    "url": "https://github.com/levsor/fisejs.git"
   },
   "keywords": [
     "network",
@@ -24,9 +24,9 @@
   "author": "Andres Rosero <andrewrosvel@gmail.com>",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/sysbar/fisejs/issues"
+    "url": "https://github.com/levsor/fisejs/issues"
   },
-  "homepage": "https://github.com/sysbar/fisejs#readme",
+  "homepage": "https://github.com/levsor/fisejs#readme",
   "dependencies": {
     "babel-preset-es2015": "^6.22.0",
     "babel-register": "^6.22.0",

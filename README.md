@@ -9,12 +9,12 @@ It's useful to **upload/download** files in a network, just put your files in th
 
 * nodejs >= 4.x
 * npm >= 2.x
-* git >= 2.x || [direct download](https://github.com/sysbar/fisejs/archive/master.zip)
+* git >= 2.x || [direct download](https://github.com/levsor/fisejs/archive/master.zip)
 
 #### Download and install
 
 ```
-$ git clone https://github.com/sysbar/fisejs.git && cd fisejs
+$ git clone https://github.com/levsor/fisejs.git && cd fisejs
 $ npm install
 ```
 
@@ -25,5 +25,4 @@ $ npm start
 ```
 
 # :)
-I started this project to learn and practice NodeJS.
 I'll try to make it better with time.
