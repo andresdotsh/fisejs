@@ -1,5 +1,5 @@
-# fise.js
-This is a simple file server with **node.js**, **express**, **pug** and other technologies.
+# fisejs
+This is a simple file server built with **node.js**, **express**, **pug** and other technologies.
 
 It's useful to **upload/download** files in a network, just put your files in the **/files** directory and that's all.
 
@@ -23,3 +23,7 @@ $ npm install
 ```
 $ npm start
 ```
+
+#### Note
+
+This application was built with learning purposes. This was the first version, with **express** as the web server. The second version consists of an API ([fiserv](https://github.com/drebits/fiserv)) and a Front application ([fisetoo](https://github.com/drebits/fisetoo)).
