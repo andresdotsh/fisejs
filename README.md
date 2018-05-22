@@ -23,7 +23,3 @@ $ npm install
 ```
 $ npm start
 ```
-
-#### Note
-
-This application was built with learning purposes. This was the first version, with **express** as the web server. The second version consists of an API ([fiserv](https://github.com/drebits/fiserv)) and a Front application ([fisetoo](https://github.com/drebits/fisetoo)).
